@@ -90,11 +90,6 @@
             align-items: center;
         }
         
-        .ad-container p {
-            color: #888;
-            font-size: 1.1rem;
-        }
-        
         .images-container {
             display: flex;
             justify-content: space-around;
@@ -111,6 +106,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             transition: transform 0.3s ease;
+            position: relative;
         }
         
         .festival-image:hover {
@@ -124,24 +120,17 @@
             display: block;
         }
         
-        .image-placeholder {
-            height: 250px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
+        .image-caption {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px;
             font-weight: bold;
-            font-size: 1.5rem;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .gandhi {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #4CAF50;
-        }
-        
-        .dussehra {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #FF5733;
+            font-size: 1.2rem;
+            color: #ff9933;
+            font-family: 'Hind Siliguri', sans-serif;
         }
         
         .name-form {
@@ -369,6 +358,15 @@
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-15px) rotate(5deg); }
         }
+        
+        .user-name-display {
+            font-size: 1.5rem;
+            color: #ff9933;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Hind Siliguri', sans-serif;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -387,24 +385,26 @@
         </header>
         
         <!-- Top Ad -->
-        <div class="ad-container">
+        <div class="ad-container" id="top-ad">
             <!-- Google AdSense Ad will be placed here -->
-            <p>Google AdSense Banner Ad</p>
         </div>
+        
+        <div class="user-name-display" id="userNameDisplay"></div>
         
         <div class="images-container">
             <div class="festival-image">
-                <img src="gandhi.jpg" alt="Gandhi Jayanti" onerror="this.style.display='none'; this.parentElement.classList.add('gandhi'); this.parentElement.innerHTML='<div class=\'image-placeholder gandhi\'>HAPPY GANDHI JAYANTI</div>'">
+                <div class="image-caption">Happy Gandhi Jayanti</div>
+                <img src="gandhi.jpg" alt="Gandhi Jayanti" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4CAF50/white?text=Happy+Gandhi+Jayanti';">
             </div>
             <div class="festival-image">
-                <img src="dussehra.jpg" alt="Dussehra" onerror="this.style.display='none'; this.parentElement.classList.add('dussehra'); this.parentElement.innerHTML='<div class=\'image-placeholder dussehra\'>शुभ दशहरा</div>'">
+                <div class="image-caption">शुभ दशहरा</div>
+                <img src="dussehra.jpg" alt="Dussehra" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FF5733/white?text=Shubh+Dussehra';">
             </div>
         </div>
         
         <!-- Middle Ad -->
-        <div class="ad-container">
+        <div class="ad-container" id="middle-ad">
             <!-- Google AdSense Ad will be placed here -->
-            <p>Google AdSense Banner Ad</p>
         </div>
         
         <div class="name-form">
@@ -423,17 +423,16 @@
         <div class="social-share">
             <h2>शुभकामनाएं शेयर करें</h2>
             <div class="share-buttons">
-                <a id="whatsappShare" class="share-button whatsapp">WhatsApp</a>
-                <a id="facebookShare" class="share-button facebook">Facebook</a>
-                <a id="twitterShare" class="share-button twitter">Twitter</a>
-                <a id="instagramShare" class="share-button instagram">Instagram</a>
+                <a id="whatsappShare" class="share-button whatsapp" target="_blank">WhatsApp</a>
+                <a id="facebookShare" class="share-button facebook" target="_blank">Facebook</a>
+                <a id="twitterShare" class="share-button twitter" target="_blank">Twitter</a>
+                <a id="instagramShare" class="share-button instagram" target="_blank">Instagram</a>
             </div>
         </div>
         
         <!-- Bottom Ad -->
-        <div class="ad-container">
+        <div class="ad-container" id="bottom-ad">
             <!-- Google AdSense Ad will be placed here -->
-            <p>Google AdSense Banner Ad</p>
         </div>
         
         <div class="music-info">
@@ -459,4 +458,65 @@
             
             document.getElementById('whatsappShare').href = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
             document.getElementById('facebookShare').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${shareText}`;
-            document.getElementById('twitterShare').href = `https://twitter.com
+            document.getElementById('twitterShare').href = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
+            document.getElementById('instagramShare').href = `https://www.instagram.com/?url=${currentUrl}`;
+        }
+        
+        function generateWish() {
+            const userName = document.getElementById('userName').value.trim();
+            if (userName === '') {
+                alert('कृपया अपना नाम दर्ज करें');
+                return;
+            }
+            
+            const wishText = `${userName} की तरफ से सभी देश वासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं!`;
+            document.getElementById('wishText').textContent = wishText;
+            document.getElementById('wishResult').style.display = 'block';
+            
+            // Display user name above images
+            document.getElementById('userNameDisplay').textContent = `${userName} की शुभकामनाएं`;
+            
+            // Update social sharing links with the user's name
+            updateSocialLinks(userName);
+        }
+        
+        // Handle audio autoplay with user interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('backgroundMusic');
+            
+            // Try to play audio
+            const playAudio = function() {
+                audio.play().catch(function(error) {
+                    console.log('Autoplay prevented: ', error);
+                    // Add a button to allow user to start audio
+                    const musicInfo = document.querySelector('.music-info');
+                    musicInfo.innerHTML += '<br><button onclick="enableAudio()">संगीत चालू करें</button>';
+                });
+            };
+            
+            // Try to play when user interacts with the page
+            document.body.addEventListener('click', function() {
+                playAudio();
+                // Remove the event listener after first interaction
+                document.body.removeEventListener('click', arguments.callee);
+            });
+            
+            // Also try on page load
+            playAudio();
+        });
+        
+        function enableAudio() {
+            document.getElementById('backgroundMusic').play()
+                .then(() => {
+                    console.log('Audio started successfully');
+                })
+                .catch(error => {
+                    console.log('Audio play failed: ', error);
+                });
+        }
+        
+        // Initialize with empty user name
+        updateSocialLinks('');
+    </script>
+</body>
+</html>
