@@ -4,62 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>गाँधी जयंती और दशहरा शुभकामनाएं</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
         
         body {
-            background: linear-gradient(to bottom, #ff9933, #ffffff, #138808);
+            background: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
             color: #333;
             min-height: 100vh;
             padding: 20px;
             text-align: center;
+            font-family: 'Poppins', sans-serif;
             background-image: 
                 radial-gradient(circle at 20% 30%, rgba(255, 204, 0, 0.3) 10px, transparent 20px),
                 radial-gradient(circle at 80% 70%, rgba(255, 204, 0, 0.3) 15px, transparent 25px);
             background-size: 300px 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
         }
         
         header {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            position: relative;
         }
         
         h1 {
             color: #ff9933;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(45deg, #ff9933, #138808);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
         
         .greeting {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: #138808;
-            margin-bottom: 20px;
-            font-weight: bold;
+            margin-bottom: 25px;
+            font-weight: 600;
             line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-family: 'Hind Siliguri', sans-serif;
         }
         
         .ad-container {
             width: 100%;
-            margin: 15px 0;
-            padding: 10px;
+            margin: 20px 0;
+            padding: 15px;
             background: #f8f8f8;
-            border-radius: 8px;
-            border: 1px dashed #ccc;
-            min-height: 90px;
+            border-radius: 12px;
+            border: 2px dashed #ccc;
+            min-height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -67,28 +92,40 @@
         
         .ad-container p {
             color: #888;
+            font-size: 1.1rem;
         }
         
         .images-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            margin: 20px 0;
-            gap: 15px;
+            margin: 25px 0;
+            gap: 20px;
         }
         
         .festival-image {
             flex: 1;
             min-width: 280px;
-            margin: 10px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             overflow: hidden;
-            position: relative;
+            transition: transform 0.3s ease;
         }
         
-        .festival-image div {
-            height: 200px;
+        .festival-image:hover {
+            transform: translateY(-5px);
+        }
+        
+        .festival-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-placeholder {
+            height: 250px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -100,77 +137,103 @@
         }
         
         .gandhi {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #4CAF50;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #4CAF50;
         }
         
         .dussehra {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #FF5733;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #FF5733;
         }
         
         .name-form {
-            margin: 25px 0;
-            padding: 20px;
-            background: #f5f5f5;
-            border-radius: 10px;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .name-form h2 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #ff9933;
+            font-size: 1.8rem;
+            font-family: 'Hind Siliguri', sans-serif;
         }
         
         .input-group {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         input[type="text"] {
             flex: 1;
-            min-width: 250px;
-            padding: 12px;
+            min-width: 280px;
+            padding: 15px;
             border: 2px solid #ff9933;
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #138808;
+            box-shadow: 0 0 0 3px rgba(19, 136, 8, 0.2);
         }
         
         button {
-            background: #ff9933;
+            background: linear-gradient(135deg, #ff9933 0%, #138808 100%);
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
+            padding: 15px 30px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background 0.3s;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         button:hover {
-            background: #e0892a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
         }
         
         .result {
-            margin: 20px 0;
-            padding: 15px;
-            background: #e8f5e9;
-            border-radius: 10px;
+            margin: 25px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            border-radius: 15px;
             display: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #138808;
         }
         
         .result h3 {
             color: #138808;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        
+        #wishText {
+            font-size: 1.3rem;
+            color: #333;
+            line-height: 1.6;
+            font-weight: 500;
         }
         
         .social-share {
-            margin: 25px 0;
+            margin: 30px 0;
         }
         
         .social-share h2 {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #ff9933;
+            font-size: 1.8rem;
+            font-family: 'Hind Siliguri', sans-serif;
         }
         
         .share-buttons {
@@ -184,56 +247,51 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border-radius: 8px;
             color: white;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .share-button:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
         }
         
-        .whatsapp { background: #25D366; }
-        .facebook { background: #3b5998; }
-        .twitter { background: #1DA1F2; }
-        .instagram { background: #E1306C; }
+        .whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
+        .facebook { background: linear-gradient(135deg, #3b5998 0%, #2d4373 100%); }
+        .twitter { background: linear-gradient(135deg, #1DA1F2 0%, #0d8bd9 100%); }
+        .instagram { background: linear-gradient(135deg, #E1306C 0%, #833AB4 100%); }
         
-        .music-player {
+        .music-info {
             margin-top: 20px;
             padding: 15px;
             background: #f1f1f1;
             border-radius: 10px;
-        }
-        
-        .music-player h3 {
-            margin-bottom: 10px;
-            color: #ff9933;
-        }
-        
-        .audio-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            font-size: 0.9rem;
+            color: #666;
         }
         
         footer {
-            margin-top: 30px;
+            margin-top: 40px;
             color: #777;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            padding: 15px;
+            border-top: 1px solid #eee;
+            width: 100%;
         }
         
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
             }
             
             .greeting {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             
             .festival-image {
@@ -251,10 +309,77 @@
             .share-buttons {
                 flex-direction: column;
             }
+            
+            .share-button {
+                width: 100%;
+            }
+        }
+        
+        /* Decorative elements */
+        .diya {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(#ff9933, #ff6600);
+            border-radius: 50%;
+            box-shadow: 0 0 20px #ff9933, 0 0 40px #ff9900;
+            z-index: -1;
+        }
+        
+        .diya-1 {
+            top: 10%;
+            left: 5%;
+            animation: flicker 3s infinite alternate;
+        }
+        
+        .diya-2 {
+            top: 15%;
+            right: 7%;
+            animation: flicker 4s infinite alternate;
+        }
+        
+        .diya-3 {
+            bottom: 20%;
+            left: 8%;
+            animation: flicker 5s infinite alternate;
+        }
+        
+        .diya-4 {
+            bottom: 15%;
+            right: 6%;
+            animation: flicker 3.5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .flower {
+            position: absolute;
+            font-size: 24px;
+            color: #ff9933;
+            z-index: -1;
+        }
+        
+        .flower-1 { top: 12%; right: 12%; animation: float 8s infinite ease-in-out; }
+        .flower-2 { bottom: 18%; left: 12%; animation: float 10s infinite ease-in-out; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
         }
     </style>
 </head>
 <body>
+    <div class="diya diya-1"></div>
+    <div class="diya diya-2"></div>
+    <div class="diya diya-3"></div>
+    <div class="diya diya-4"></div>
+    
+    <div class="flower flower-1">🌸</div>
+    <div class="flower flower-2">🪷</div>
+    
     <div class="container">
         <header>
             <h1>गाँधी जयंती और दशहरा</h1>
@@ -269,10 +394,10 @@
         
         <div class="images-container">
             <div class="festival-image">
-                <div class="gandhi">HAPPY GANDHI JAYANTI</div>
+                <img src="gandhi.jpg" alt="Gandhi Jayanti" onerror="this.style.display='none'; this.parentElement.classList.add('gandhi'); this.parentElement.innerHTML='<div class=\'image-placeholder gandhi\'>HAPPY GANDHI JAYANTI</div>'">
             </div>
             <div class="festival-image">
-                <div class="dussehra">शुभ दशहरा</div>
+                <img src="dussehra.jpg" alt="Dussehra" onerror="this.style.display='none'; this.parentElement.classList.add('dussehra'); this.parentElement.innerHTML='<div class=\'image-placeholder dussehra\'>शुभ दशहरा</div>'">
             </div>
         </div>
         
@@ -285,8 +410,8 @@
         <div class="name-form">
             <h2>अपना नाम दर्ज करें</h2>
             <div class="input-group">
-                <input type="text" id="userName" placeholder="इंटर your name">
-                <button onclick="generateWish()">Submit</button>
+                <input type="text" id="userName" placeholder="आपका नाम यहाँ लिखें">
+                <button onclick="generateWish()">शुभकामनाएं प्राप्त करें</button>
             </div>
         </div>
         
@@ -311,23 +436,18 @@
             <p>Google AdSense Banner Ad</p>
         </div>
         
-        <div class="music-player">
-            <h3>पार्श्व संगीत</h3>
-            <div class="audio-controls">
-                <button onclick="playMusic()">Play</button>
-                <button onclick="pauseMusic()">Pause</button>
-            </div>
-            <audio id="backgroundMusic" loop>
-                <!-- Replace with your actual music file path -->
-                <source src="https://assets.mixkit.co/music/preview/mixkit-happy-times-158.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+        <div class="music-info">
+            पार्श्व संगीत: "फ़ेस्टिवल म्यूजिक" (स्वचालित रूप से चल रहा है)
         </div>
         
         <footer>
-            <p>© 2023 गाँधी जयंती और दशहरा शुभकामनाएं</p>
+            <p>© 2023 गाँधी जयंती और दशहरा शुभकामनाएं | सभी अधिकार सुरक्षित</p>
         </footer>
     </div>
+
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="festival-music.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         // Initialize social sharing URLs
@@ -335,54 +455,8 @@
             const wishText = `${userName} की तरफ से सभी देश वासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं!`;
             const currentUrl = encodeURIComponent(window.location.href);
             const text = encodeURIComponent(wishText);
+            const shareText = encodeURIComponent(`${userName} ने आपको एक शुभकामना भेजी है! देखने के लिए लिंक पर क्लिक करें:`);
             
-            document.getElementById('whatsappShare').href = `https://api.whatsapp.com/send?text=${text}%20${currentUrl}`;
-            document.getElementById('facebookShare').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${text}`;
-            document.getElementById('twitterShare').href = `https://twitter.com/intent/tweet?text=${text}&url=${currentUrl}`;
-            document.getElementById('instagramShare').href = `https://www.instagram.com/?url=${currentUrl}`;
-        }
-        
-        function generateWish() {
-            const userName = document.getElementById('userName').value.trim();
-            if (userName === '') {
-                alert('कृपया अपना नाम दर्ज करें');
-                return;
-            }
-            
-            const wishText = `${userName} की तरफ से सभी देश वासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं!`;
-            document.getElementById('wishText').textContent = wishText;
-            document.getElementById('wishResult').style.display = 'block';
-            
-            // Update social sharing links with the user's name
-            updateSocialLinks(userName);
-        }
-        
-        function playMusic() {
-            const audio = document.getElementById('backgroundMusic');
-            audio.play().catch(e => {
-                console.log('Audio play failed:', e);
-                alert('कृपया पेज को एक बार क्लिक करें संगीत चलाने के लिए');
-            });
-        }
-        
-        function pauseMusic() {
-            document.getElementById('backgroundMusic').pause();
-        }
-        
-        // Enable audio playback on user interaction
-        document.body.addEventListener('click', function() {
-            const audio = document.getElementById('backgroundMusic');
-            if (audio.paused) {
-                // Don't autoplay, but enable playback for future calls
-                audio.play().then(() => {
-                    audio.pause();
-                    audio.currentTime = 0;
-                }).catch(e => console.log('Audio initialization failed:', e));
-            }
-        });
-        
-        // Initialize with empty user name
-        updateSocialLinks('');
-    </script>
-</body>
-</html>
+            document.getElementById('whatsappShare').href = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
+            document.getElementById('facebookShare').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}&quote=${shareText}`;
+            document.getElementById('twitterShare').href = `https://twitter.com
