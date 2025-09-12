@@ -394,11 +394,11 @@
         <div class="images-container">
             <div class="festival-image">
                 <div class="image-caption">Happy Gandhi Jayanti</div>
-                <img src="gandhi.jpg" alt="Gandhi Jayanti" onerror="this.onerror=null; this.src='https://placehold.co/600x400/4CAF50/white?text=Happy+Gandhi+Jayanti';">
+                <img src="https://placehold.co/600x400/4CAF50/white?text=Happy+Gandhi+Jayanti" alt="Gandhi Jayanti">
             </div>
             <div class="festival-image">
                 <div class="image-caption">शुभ दशहरा</div>
-                <img src="dussehra.jpg" alt="Dussehra" onerror="this.onerror=null; this.src='https://placehold.co/600x400/FF5733/white?text=Shubh+Dussehra';">
+                <img src="https://placehold.co/600x400/FF5733/white?text=Shubh+Dussehra" alt="Dussehra">
             </div>
         </div>
         
@@ -440,12 +440,12 @@
         </div>
         
         <footer>
-            <p>भारत माता की जय</p>
+            <p>© 2023 गाँधी जयंती और दशहरा शुभकामनाएं | सभी अधिकार सुरक्षित</p>
         </footer>
     </div>
 
     <audio id="backgroundMusic" autoplay loop>
-        <source src="festival-music.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-times-158.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -490,7 +490,7 @@
                     console.log('Autoplay prevented: ', error);
                     // Add a button to allow user to start audio
                     const musicInfo = document.querySelector('.music-info');
-                    musicInfo.innerHTML += '<br><button onclick="enableAudio()">संगीत चालू करें</button>';
+                    musicInfo.innerHTML += '<br><button onclick="enableAudio()" style="background:#ff9933;color:white;border:none;padding:8px 15px;border-radius:5px;margin-top:10px;cursor:pointer;">संगीत चालू करें</button>';
                 });
             };
             
@@ -509,6 +509,7 @@
             document.getElementById('backgroundMusic').play()
                 .then(() => {
                     console.log('Audio started successfully');
+                    document.querySelector('.music-info button').style.display = 'none';
                 })
                 .catch(error => {
                     console.log('Audio play failed: ', error);
