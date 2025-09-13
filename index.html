@@ -28,6 +28,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            touch-action: manipulation;
         }
         
         .container {
@@ -77,6 +78,21 @@
             line-height: 1.4;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             font-family: 'Hind Siliguri', sans-serif;
+        }
+        
+        .ad-container {
+            width: 100%;
+            margin: 15px 0;
+            padding: 12px;
+            background: #f8f8f8;
+            border-radius: 12px;
+            border: 2px dashed #ccc;
+            min-height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
         }
         
         .images-container {
@@ -369,16 +385,33 @@
             <div class="greeting">सभी देश वासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं</div>
         </header>
         
+        <!-- Top AdSense Banner -->
+        <div class="ad-container" id="top-ad">
+            <!-- Google AdSense Code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2804623685462144"
+     crossorigin="anonymous"></script>
+<!-- Ad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2804623685462144"
+     data-ad-slot="6057235638"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+        
         <div class="user-name-display" id="userNameDisplay"></div>
         
         <div class="images-container">
             <div class="festival-image">
                 <div class="image-caption">Happy Gandhi Jayanti</div>
-                <img id="gandhiImage" src="https://placehold.co/600x400/ff9933/white?text=Gandhi+Jayanti" alt="Gandhi Jayanti"> 
+                <img id="gandhiImage" src="images/gandhi.jpg" alt="Gandhi Jayanti"> 
             </div>
             <div class="festival-image">
                 <div class="image-caption">शुभ दशहरा</div>
-                <img id="dussehraImage" src="https://placehold.co/600x400/138808/white?text=Dussehra" alt="Dussehra">
+                <img id="dussehraImage" src="images/dussehra.jpg" alt="Dussehra">
             </div>
         </div>
         
@@ -405,16 +438,32 @@
             </div>
         </div>
         
+        <!-- Bottom AdSense Banner -->
+        <div class="ad-container" id="bottom-ad">
+            <!-- Google AdSense Code -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2804623685462144"
+     crossorigin="anonymous"></script>
+<!-- Ad2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2804623685462144"
+     data-ad-slot="4527659408"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+        
         <div class="music-info">
             <p>पार्श्व संगीत: "फ़ेस्टिवल म्यूजिक"</p>
-            <button class="play-music-button" onclick="playMusic()">संगीत चलाएं</button>
             <audio id="backgroundMusic" loop>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                <source src="festival-music.mpeg" type="audio/mpeg">
             </audio>
         </div>
         
         <footer>
-            <p>© 2023 गाँधी जयंती और दशहरा शुभकामनाएं</p>
+            <p>© 2025 गाँधी जयंती और दशहरा शुभकामनाएं</p>
         </footer>
     </div>
 
@@ -425,23 +474,20 @@
             audio.volume = 0.7; // 70% volume
             audio.play().catch(error => {
                 console.log("Audio play failed:", error);
-                alert("संगीत चलाने में त्रुटि। कृपया पृष्ठ को रिफ़्रेश करें और ऑडियो अनुमति दें।");
             });
-            
-            // Hide the play button after clicking
-            document.querySelector('.play-music-button').style.display = 'none';
         }
         
-        // Auto-play music when page loads (with user interaction requirement)
+        // Play music when anywhere on screen is clicked
+        document.body.addEventListener('click', function() {
+            playMusic();
+            // Remove the event listener after first click to prevent multiple triggers
+            document.body.removeEventListener('click', arguments.callee);
+        });
+        
+        // Try to autoplay when page loads (may not work due to browser restrictions)
         window.addEventListener("load", function() {
-            // Try to autoplay but it might require user interaction on some devices
             setTimeout(function() {
-                var audio = document.getElementById("backgroundMusic");
-                audio.volume = 0.7;
-                audio.play().catch(() => {
-                    // If autoplay is blocked, show the play button
-                    console.log("Autoplay blocked. Showing play button.");
-                });
+                playMusic();
             }, 1000);
         });
         
