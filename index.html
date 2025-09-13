@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>गाँधी जयंती और दशहरा शुभकामनाएं</title>
-    <link rel="icon" href="data:images/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇮🇳</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇮🇳</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,7 +20,7 @@
             padding: 20px;
             text-align: center;
             font-family: 'Poppins', sans-serif;
-            background-images: 
+            background-image: 
                 radial-gradient(circle at 20% 30%, rgba(255, 204, 0, 0.3) 10px, transparent 20px),
                 radial-gradient(circle at 80% 70%, rgba(255, 204, 0, 0.3) 15px, transparent 25px);
             background-size: 300px 300px;
@@ -91,7 +91,7 @@
             align-items: center;
         }
         
-        .imagess-container {
+        .images-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
@@ -99,7 +99,7 @@
             gap: 20px;
         }
         
-        .festival-images {
+        .festival-image {
             flex: 1;
             min-width: 280px;
             max-width: 400px;
@@ -108,33 +108,25 @@
             overflow: hidden;
             transition: transform 0.3s ease;
             position: relative;
-            display: flex;
-            flex-direction: column;
         }
         
-        .festival-images:hover {
+        .festival-image:hover {
             transform: translateY(-5px);
         }
         
-        .images-wrapper {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #f0f0f0;
-        }
-        
-        .festival-images img {
-            width: 100%;
-            height: 100%;
+        .festival-image img {
+            width: 95%;
+            height: 375px;
             object-fit: cover;
             display: block;
         }
         
-        .images-caption {
-            background: rgba(255, 255, 255, 0.9);
+        .image-caption {
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
             padding: 8px;
             font-weight: bold;
             font-size: 1.2rem;
@@ -260,10 +252,10 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.25);
         }
         
-        .whatsapp { background: linear-gradient(135deg, #25D366 极, #128C7E 100%); }
-        .facebook { background: linear-gradient(135deg, #3b5998 极, #2d4373 100%); }
-        .twitter { background: linear-gradient(135deg, #1DA1F2 极, #0d8bd9 100%); }
-        .instagram { background: linear-gradient(135deg, #E1306C 极, #833AB4 100%); }
+        .whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
+        .facebook { background: linear-gradient(135deg, #3b5998 0%, #2d4373 100%); }
+        .twitter { background: linear-gradient(135deg, #1DA1F2 0%, #0d8bd9 100%); }
+        .instagram { background: linear-gradient(135deg, #E1306C 0%, #833AB4 100%); }
         
         .music-info {
             margin-top: 20px;
@@ -292,7 +284,7 @@
                 font-size: 1.5rem;
             }
             
-            .festival-images {
+            .festival-image {
                 min-width: 100%;
             }
             
@@ -320,7 +312,7 @@
             height: 40px;
             background: radial-gradient(#ff9933, #ff6600);
             border-radius: 50%;
-            box-shadow: 0 0 20px #ff9933, 极 0 40px #ff9900;
+            box-shadow: 0 0 20px #ff9933, 0 0 40px #ff9900;
             z-index: -1;
         }
         
@@ -364,7 +356,7 @@
         .flower-2 { bottom: 18%; left: 12%; animation: float 10s infinite ease-in-out; }
         
         @keyframes float {
-            0%, 极% { transform: translateY(0) rotate(0deg); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-15px) rotate(5deg); }
         }
         
@@ -377,24 +369,27 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
-        .date-display {
-            font-family: 'Hind Siliguri', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 15px 0;
-            background: linear-gradient(45deg, #ff9933, #138808, #ff6600, #4CAF50);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 极px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .file-info {
-            margin: 10px 0;
-            font-size: 0.9rem;
-            color: #666;
+        .upload-section {
+            margin: 20px 0;
+            padding: 20px;
             background: #f9f9f9;
-            padding: 10px;
+            border-radius: 10px;
+            border: 2px dashed #ff9933;
+        }
+        
+        .upload-section h3 {
+            color: #ff9933;
+            margin-bottom: 15px;
+        }
+        
+        .upload-btn {
+            background: #138808;
+            color: white;
+            padding: 10px 20px;
             border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -411,61 +406,31 @@
         <header>
             <h1>गाँधी जयंती और दशहरा</h1>
             <div class="greeting">सभी देश वासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं</div>
-            <div class="date-display">२ अक्टूबर - गाँधी जयंती</div>
-            <div class="date-display">२४ अक्टूबर - दशहरा</div>
         </header>
         
         <!-- Top Ad -->
         <div class="ad-container" id="top-ad">
-            <!-- Google AdSense Ad Code -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Replace with your ad unit code -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="XXXXXXXXXX"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <!-- Google AdSense Ad will be placed here -->
+            <p>Google AdSense बैनर विज्ञापन</p>
         </div>
         
         <div class="user-name-display" id="userNameDisplay"></div>
         
-        <div class="imagess-container">
-            <div class="festival-images">
-                <div class="images-wrapper">
-                    <!-- यहाँ आपकी गाँधी जी की फोटो है -->
-                    <img id="gandhiimages" src="imagess/gandhi.jpg" alt="Gandhi Jayanti">
-                </div>
-                <div class="images-caption">Happy Gandhi Jayanti</div>
-                <div class="file-info">फोटो लोकेशन: imagess/gandhi.jpg</div>
+        <div class="images-container">
+            <div class="festival-image">
+                <div class="image-caption">Happy Gandhi Jayanti</div>
+                <img id="gandhiImage" src="images/gandhi.jpg" alt="Gandhi Jayanti"> 
             </div>
-            <div class="festival-images">
-                <div class="images-wrapper">
-                    <!-- यहाँ आपकी दशहरा की फोटो है -->
-                    <img id="dussehraimages" src="imagess/dussehra.jpg" alt="Dussehra">
-                </div>
-                <div class="images-caption">शुभ दशहरा</div>
-                <div class="file-info">फोटो लोकेशन: images/dussehra.jpg</div>
+            <div class="festival-image">
+                <div class="image-caption">शुभ दशहरा</div>
+                <img id="dussehraImage" src="images/dussehra.jpg" alt="Dussehra">
             </div>
         </div>
         
         <!-- Middle Ad -->
         <div class="ad-container" id="middle-ad">
-            <!-- Google AdSense Ad Code -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Replace with your ad unit code -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="XXXXXXXXXX"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <!-- Google AdSense Ad will be placed here -->
+            <p>Google AdSense बैनर विज्ञापन</p>
         </div>
         
         <div class="name-form">
@@ -493,26 +458,14 @@
         
         <!-- Bottom Ad -->
         <div class="ad-container" id="bottom-ad">
-            <!-- Google AdSense Ad Code -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Replace with your ad unit code -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="XXXXXXXXXX"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <!-- Google AdSense Ad will be placed here -->
+            <p>Google AdSense बैनर विज्ञापन</p>
         </div>
         
         <div class="music-info">
             पार्श्व संगीत: "फ़ेस्टिवल म्यूजिक" (स्वचालित रूप से चल रहा है)
-            <div class="file-info">संगीत फ़ाइल लोकेशन: festival-music.mp3</div>
-            <!-- यहाँ आपका संगीत फ़ाइल है -->
             <audio id="backgroundMusic" autoplay loop>
-                <source src="festival-music.mp3" type="audio/mpeg">
+                <source src="./festival-music.mp3" type="audio/mpeg">
             </audio>
         </div>
         
@@ -546,7 +499,7 @@
             document.getElementById('wishText').textContent = wishText;
             document.getElementById('wishResult').style.display = 'block';
             
-            // Display user name above imagess
+            // Display user name above images
             document.getElementById('userNameDisplay').textContent = `${userName} की शुभकामनाएं`;
             
             // Update social sharing links with the user's name
