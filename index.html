@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>गाँधी जयंती और दशहरा शुभकामनाएं</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: url('https://i.ibb.co/XjvW0Pw/festive-bg.png') repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Tiro Devanagari Hindi', serif;
+  }
+  .message {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff0000, #ff9900);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
+  }
+  .festival-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .festival-images img {
+    max-width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  .countdown {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6600, #cc0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  @media (max-width: 320px) {
+    .festival-images img {
+      max-width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="message">गाँधी जयंती और दशहरा</div>
+<div class="message">सभी देशवासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं</div>
+
+<div class="festival-images">
+  <img src="images/gandhi.jpg" alt="गाँधी जी">
+  <img src="images/dussehra.jpg" alt="दशहरा">
+</div>
+
+<div class="countdown" id="countdown">लोड हो रहा है...</div>
+
+<script>
+function updateCountdown() {
+  const targetDate = new Date('2025-10-02T00:00:00').getTime();
+  const now = new Date().getTime();
+  const difference = targetDate - now;
+
+  if (difference <= 0) {
+    document.getElementById('countdown').innerText = "🎉 कार्यक्रम समाप्त हो गया";
+    return;
+  }
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+  document.getElementById('countdown').innerText = 
+    `कार्यक्रम समाप्त होने में: ${days} दिन, ${hours} घंटे, ${minutes} मिनट, ${seconds} सेकंड`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
