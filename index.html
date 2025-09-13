@@ -264,6 +264,21 @@
             border-radius: 10px;
             font-size: 0.9rem;
             color: #666;
+            display: none; /* Initially hide the message */
+        }
+
+        .music-info.visible {
+            display: block;
+        }
+
+        .play-music-button {
+            background: #ff9933;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
         }
         
         footer {
@@ -408,9 +423,7 @@
             <div class="greeting">सभी देश वासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं</div>
         </header>
         
-        <!-- Top Ad -->
         <div class="ad-container" id="top-ad">
-            <!-- Google AdSense Ad will be placed here -->
             <p>Google AdSense बैनर विज्ञापन</p>
         </div>
         
@@ -427,9 +440,7 @@
             </div>
         </div>
         
-        <!-- Middle Ad -->
         <div class="ad-container" id="middle-ad">
-            <!-- Google AdSense Ad will be placed here -->
             <p>Google AdSense बैनर विज्ञापन</p>
         </div>
         
@@ -456,17 +467,16 @@
             </div>
         </div>
         
-        <!-- Bottom Ad -->
         <div class="ad-container" id="bottom-ad">
-            <!-- Google AdSense Ad will be placed here -->
             <p>Google AdSense बैनर विज्ञापन</p>
         </div>
         
         <div class="music-info">
             पार्श्व संगीत: "फ़ेस्टिवल म्यूजिक" (स्वचालित रूप से चल रहा है)
             <audio id="backgroundMusic" autoplay loop>
-                <source src="./festival-music.mp3" type="audio/mpeg">
+                <source src="festival-music.mpeg" type="audio/mpeg">
             </audio>
+            <span id="musicMessage"></span>
         </div>
         
         <footer>
@@ -475,11 +485,20 @@
     </div>
 
     <script>
-        // Initialize social sharing URLs
+      // ✅ Force play on load (for browsers that block autoplay)
+    window.addEventListener("load", function () {
+        var audio = document.getElementById("backgroundMusic");
+        audio.volume = 0.7; // thoda soft rakha
+        audio.play().catch(() => {
+            // Agar autoplay block ho to pehli click par play ho
+            document.body.addEventListener("click", () => {
+                audio.play();
+            }, { once: true });
+        });
+    });
         function updateSocialLinks(userName) {
             const wishText = `${userName} की तरफ से सभी देश वासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं!`;
             const currentUrl = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent(wishText);
             const shareText = encodeURIComponent(`${userName} ने आपको एक शुभकामना भेजी है! देखने के लिए लिंक पर क्लिक करें:`);
             
             document.getElementById('whatsappShare').href = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
@@ -499,60 +518,13 @@
             document.getElementById('wishText').textContent = wishText;
             document.getElementById('wishResult').style.display = 'block';
             
-            // Display user name above images
             document.getElementById('userNameDisplay').textContent = `${userName} की शुभकामनाएं`;
             
-            // Update social sharing links with the user's name
             updateSocialLinks(userName);
         }
+
         
-        // Handle audio autoplay with user interaction
-        document.addEventListener('DOMContentLoaded', function() {
-            const audio = document.getElementById('backgroundMusic');
-            
-            // Try to play audio
-            const playAudio = function() {
-                if (audio) {
-                    audio.play().catch(function(error) {
-                        console.log('Autoplay prevented: ', error);
-                        // Add a button to allow user to start audio
-                        const musicInfo = document.querySelector('.music-info');
-                        if (musicInfo) {
-                            musicInfo.innerHTML += '<br><button onclick="enableAudio()" style="background:#ff9933;color:white;border:none;padding:8px 15px;border-radius:5px;margin-top:10px;cursor:pointer;">संगीत चालू करें</button>';
-                        }
-                    });
-                }
-            };
-            
-            // Try to play when user interacts with the page
-            document.body.addEventListener('click', function() {
-                playAudio();
-                // Remove the event listener after first interaction
-                document.body.removeEventListener('click', arguments.callee);
-            });
-            
-            // Also try on page load
-            playAudio();
-        });
-        
-        function enableAudio() {
-            const audio = document.getElementById('backgroundMusic');
-            if (audio) {
-                audio.play()
-                    .then(() => {
-                        console.log('Audio started successfully');
-                        const audioButton = document.querySelector('.music-info button');
-                        if (audioButton) {
-                            audioButton.style.display = 'none';
-                        }
-                    })
-                    .catch(error => {
-                        console.log('Audio play failed: ', error);
-                    });
-            }
-        }
-        
-        // Initialize with empty user name
+       
         updateSocialLinks('');
     </script>
 </body>
