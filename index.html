@@ -14,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #ff9933 0%, 82FFEB 50%, 17D609 100%);
+            background: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
             color: #333;
             min-height: 100vh;
             padding: 20px;
@@ -48,7 +48,7 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, #ff9933, 82FFEB, 17D609);
+            background: linear-gradient(90deg, #ff9933, #ffffff, #138808);
         }
         
         header {
@@ -62,7 +62,7 @@
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             font-family: 'Hind Siliguri', sans-serif;
-            background: linear-gradient(45deg, #ff9933, 17D609);
+            background: linear-gradient(45deg, #ff9933, #138808);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
@@ -70,7 +70,7 @@
         
         .greeting {
             font-size: 1.8rem;
-            color: 17D609;
+            color: #138808;
             margin-bottom: 25px;
             font-weight: 600;
             line-height: 1.4;
@@ -108,25 +108,33 @@
             overflow: hidden;
             transition: transform 0.3s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
         .festival-image:hover {
             transform: translateY(-5px);
         }
         
-        .festival-image img {
+        .image-wrapper {
             width: 100%;
             height: 250px;
-            object-fit: fix;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0f0f0;
+        }
+        
+        .festival-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
         
         .image-caption {
-            position: absolute;
-            top: 10px;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             padding: 8px;
             font-weight: bold;
             font-size: 1.2rem;
@@ -252,10 +260,10 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.25);
         }
         
-        .whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
-        .facebook { background: linear-gradient(135deg, #3b5998 0%, #2d4373 100%); }
-        .twitter { background: linear-gradient(135deg, #1DA1F2 0%, #0d8bd9 100%); }
-        .instagram { background: linear-gradient(135deg, #E1306C 0%, #833AB4 100%); }
+        .whatsapp { background: linear-gradient(135deg, #25D366 极, #128C7E 100%); }
+        .facebook { background: linear-gradient(135deg, #3b5998 极, #2d4373 100%); }
+        .twitter { background: linear-gradient(135deg, #1DA1F2 极, #0d8bd9 100%); }
+        .instagram { background: linear-gradient(135deg, #E1306C 极, #833AB4 100%); }
         
         .music-info {
             margin-top: 20px;
@@ -312,7 +320,7 @@
             height: 40px;
             background: radial-gradient(#ff9933, #ff6600);
             border-radius: 50%;
-            box-shadow: 0 0 20px #ff9933, 0 0 40px #ff9900;
+            box-shadow: 0 0 20px #ff9933, 极 0 40px #ff9900;
             z-index: -1;
         }
         
@@ -356,7 +364,7 @@
         .flower-2 { bottom: 18%; left: 12%; animation: float 10s infinite ease-in-out; }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
+            0%, 极% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-15px) rotate(5deg); }
         }
         
@@ -377,7 +385,16 @@
             background: linear-gradient(45deg, #ff9933, #138808, #ff6600, #4CAF50);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 极px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .file-info {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #666;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -394,8 +411,8 @@
         <header>
             <h1>गाँधी जयंती और दशहरा</h1>
             <div class="greeting">सभी देश वासियों को गाँधी जयंती और दशहरा की हार्दिक शुभकामनाएं</div>
-            <div class="date-display">2 अक्टूबर - गाँधी जयंती</div>
-            <div class="date-display">2 अक्टूबर - दशहरा</div>
+            <div class="date-display">२ अक्टूबर - गाँधी जयंती</div>
+            <div class="date-display">२४ अक्टूबर - दशहरा</div>
         </header>
         
         <!-- Top Ad -->
@@ -418,14 +435,20 @@
         
         <div class="images-container">
             <div class="festival-image">
+                <div class="image-wrapper">
+                    <!-- यहाँ आपकी गाँधी जी की फोटो है -->
+                    <img id="gandhiImage" src="image/gandhi.jpg" alt="Gandhi Jayanti" onerror="this.src='https://placehold.co/600x400/4CAF50/white?text=गाँधी+जयंती'">
+                </div>
                 <div class="image-caption">Happy Gandhi Jayanti</div>
-                <!-- यहाँ आपकी गाँधी जी की फोटो है -->
-                <img id="gandhiImage" src="image/gandhi.jpg" alt="Gandhi Jayanti">
+                <div class="file-info">फोटो लोकेशन: image/gandhi.jpg</div>
             </div>
             <div class="festival-image">
+                <div class="image-wrapper">
+                    <!-- यहाँ आपकी दशहरा की फोटो है -->
+                    <img id="dussehraImage" src="image/dussehra.jpg" alt="Dussehra" onerror="this.src='https://placehold.co/600x400/FF5733/white?text=शुभ+दशहरा'">
+                </div>
                 <div class="image-caption">शुभ दशहरा</div>
-                <!-- यहाँ आपकी दशहरा की फोटो है -->
-                <img id="dussehraImage" src="image/dussehra.jpg" alt="Dussehra">
+                <div class="file-info">फोटो लोकेशन: image/dussehra.jpg</div>
             </div>
         </div>
         
@@ -485,14 +508,16 @@
         </div>
         
         <div class="music-info">
-           
+            पार्श्व संगीत: "फ़ेस्टिवल म्यूजिक" (स्वचालित रूप से चल रहा है)
+            <div class="file-info">संगीत फ़ाइल लोकेशन: festival-music.mp3</div>
+            <!-- यहाँ आपका संगीत फ़ाइल है -->
             <audio id="backgroundMusic" autoplay loop>
                 <source src="festival-music.mp3" type="audio/mpeg">
             </audio>
         </div>
         
         <footer>
-            <p>गाँधी जयंती और दशहरा शुभकामनाएं</p>
+            <p>© 2023 गाँधी जयंती और दशहरा शुभकामनाएं | सभी अधिकार सुरक्षित</p>
         </footer>
     </div>
 
