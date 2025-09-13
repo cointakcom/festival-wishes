@@ -35,17 +35,6 @@
             touch-action: manipulation;
         }
         
-        .container {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
         
         .container::before {
             content: "";
@@ -84,20 +73,6 @@
             font-family: 'Hind Siliguri', sans-serif;
         }
         
-        .ad-container {
-            width: 100%;
-            margin: 15px 0;
-            padding: 12px;
-            background: #f8f8f8;
-            border-radius: 12px;
-            border: 2px dashed #ccc;
-            min-height: 90px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #666;
-        }
         
         .images-container {
             display: flex;
@@ -358,14 +333,14 @@
         }
         
         /* Mobile-specific adjustments */
-        @media (min-width: 500px) {
+        @media (min-width: 350px) {
             .images-container {
                 flex-direction: row;
                 flex-wrap: wrap;
             }
             
             .festival-image {
-                width: calc(50% - 8px);
+                width: calc(10% - 8px);
             }
         }
         
