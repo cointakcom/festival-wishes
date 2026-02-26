@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Main Page -->
+  <url>
+    <loc>https://rummyyonogames.com/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-in" href="https://rummyyonogames.com/"/>
+    <xhtml:link rel="alternate" hreflang="hi-in" href="https://rummyyonogames.com/"/>
+    <image:image>
+      <image:loc>https://rummyyonogames.com/images/og-banner.jpg</image:loc>
+      <image:title>RUMMY YONO GAMES - India's #1 Rummy Platform</image:title>
+      <image:caption>Download All Rummy Apps with ₹51 Instant Bonus</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Rummy Games URLs (50+ गेम्स के लिए) -->
+  <url>
+    <loc>https://rummyyonogames.com/#334-rummy</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://rummyyonogames.com/images/apps/334-rummy.png</image:loc>
+      <image:title>334 Rummy App Download with ₹51 Bonus</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#jungle-haan</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#rummy-nabob</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#rummy-a1</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#rummy-golds</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#royally-rummy</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#rummy-glee</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#yono-games</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#51-game</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#goa-games</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#diuwin-game</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#tiranga-colour-trading</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#91-club</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#rummy-se</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#rummy-paisa</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#ok-rummy</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <url>
+    <loc>https://rummyyonogames.com/#fun-rummy</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+</urlset>

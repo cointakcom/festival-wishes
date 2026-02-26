@@ -1,0 +1,30 @@
+# robots.txt for rummyyonogames.com
+User-agent: *
+Allow: /
+Allow: /images/apps/
+Disallow: /images/
+Disallow: /cdn-cgi/
+Allow: /*.js
+Allow: /*.css
+
+Sitemap: https://rummyyonogames.com/sitemap.xml
+
+# Crawl delay for politeness
+Crawl-delay: 0.5
+
+# Host
+Host: https://rummyyonogames.com
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /images/apps/
+Allow: /images/og-banner.jpg
+
+# Google Ads Bot
+User-agent: AdsBot-Google
+Allow: /
+
+# Bing Bot
+User-agent: bingbot
+Allow: /
+Crawl-delay: 1
